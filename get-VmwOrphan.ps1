@@ -137,8 +137,8 @@ function Get-VmwOrphan{
                 $obj = [ordered]@{
                   Name = $_.Value.Path
                   Folder = $_.Name
-                  Size = $_.Value.FileSize
-                  CapacityKB = $_.Value.CapacityKb
+                  SizeGB = [math]::round($_.Value.FileSize/1GB,2)
+                  #CapacityGB = [math]::round($_.Value.CapacityKb/1MB,2)
                   Modification = $_.Value.Modification
                   Owner = $_.Value.Owner
                   Thin = $_.Value.Thin
